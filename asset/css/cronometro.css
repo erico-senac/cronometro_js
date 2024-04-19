@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+:root{
+    --fonte-Rubik: "Rubik", sans-serif;
+    --fonte-Roboto: "Roboto", sans-serif;
+    --fonte-Roboto-Condensed :"Roboto Condensed", sans-serif;
+    --fonte-Lato: "Lato", sans-serif;
+    --fonte-Open-Sans: "Open Sans", sans-serif;
+}
+*{
+    margin: 0;
+    padding: 0;
+}
+html{
+    font-size: 10px;
+}
+
+.tela{
+    height: 100vh;
+    margin-top: 0;
+    margin-bottom: 0;
+    width: 80rem;
+    margin: auto;
+    background-image: radial-gradient(circle farthest-side at left, orange, white, red, black);
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 5fr 1fr;
+}
+.tela div{
+    font-size: 1.75rem;
+    font-family: var(--fonte-Roboto);
+    font-weight: 600;
+    padding: 0.50rem;
+    text-align: center;
+}
+.tela .titulo{
+    font-size: 3rem;
+    text-shadow: 0.25rem 0.3rem white;
+    box-shadow: inset;
+}
+.tela .def_time input[type="number"]{
+    width:2.5rem;
+    text-decoration-skip: unset;
+}
+.tela .acoes_crono{
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+.btn{
+    border-style: outset;
+    border-radius: 10px;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    height: 2rem;
+    background-color: hsla(219, 100%, 50%, 100%);
+    width: 7rem;
+}
+.btn:hover{
+    background-color: hsla(219, 100%, 60%, 100%);
+    cursor: pointer;
+    color: hsl(0, 12%, 94%);
+}

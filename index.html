@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cronometro</title>
+    <link rel="stylesheet" href="./asset/css/cronometro.css">
+</head>
+<body>
+    <div class="tela">
+        <div class="titulo">
+            Cronometro
+        </div>
+        <div class="fieldset conf_cronometro">
+            <div class="opcoes__fieldset">
+                <input type="radio" name="tipo_cronometro" id="" checked>Hora
+                <input type="radio" name="tipo_cronometro" id="">Progressivo
+                <input type="radio" name="tipo_cronometro" id="">Regressivo
+            </div>
+            <div class="def_time">
+                <label for="def_time">Tempo 
+                    <input type="number" name="def_time" id="def_time" min="00" max="23"> :
+                    <input type="number" name="def_time" id="def_time" min="00" max="59"> :
+                    <input type="number" name="def_time" id="def_time" min="00" max="59">
+                </label>
+            </div>
+        </div>
+        <div class="acoes_crono">
+            <div class="btn" id="botao_start">
+                Iniciar
+            </div>
+            <div class="btn" id="botao_reset">
+                Resetar
+            </div>
+            <div class="btn" id="botao_stop">
+                Parar
+            </div>
+        </div>
+        <div class="cronometro">
+            tempo
+        </div>
+        <div class="data">
+            data
+        </div>
+    </div>
+    <script src="./asset/js/cronometro.js"></script>
+</body>
+</html>

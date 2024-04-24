@@ -36,9 +36,12 @@ html{
     text-shadow: 0.25rem 0.3rem white;
     box-shadow: inset;
 }
+.hide{
+    visibility: hidden;
+}
 .tela .def_time input[type="number"]{
-    width:2.5rem;
-    text-decoration-skip: unset;
+    width:3.5rem;
+    text-align: right;
 }
 .tela .acoes_crono{
     display: flex;
@@ -53,10 +56,11 @@ html{
     align-items: center;
     height: 2rem;
     background-color: hsla(219, 100%, 50%, 100%);
-    width: 7rem;
+    width: 8rem;
 }
 .btn:hover{
     background-color: hsla(219, 100%, 60%, 100%);
     cursor: pointer;
     color: hsl(0, 12%, 94%);
+    box-shadow: 0px 0px 12px 0px hsla(0, 0%, 100%, 0.5);
 }

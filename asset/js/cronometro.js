@@ -2,19 +2,33 @@ const div_data = document.querySelector(".data");
 const div_hora = document.querySelector(".cronometro");
 const input_radio = document.querySelectorAll("input[name*=cronometro]");
 const inputs_tempo = document.querySelectorAll('input[name=def_time]');
-let hora = document.querySelector('[hora]');
-let minuto = document.querySelector('[minuto]');
-let segundo = document.querySelector('[segundo]');
+const btn_start = document.querySelector('#botao_start');
 
 const iniciarContagem = (tipo) => {
-    let tempo_total = parseInt(hora.value)*60*60+parseInt(minuto.value)*60+parseInt(segundo.value);
+    let hora = parseInt(document.querySelector('[hora]').value);
+    let minuto = parseInt(document.querySelector('[minuto]').value);
+    let segundo = parseInt(document.querySelector('[segundo]').value);
+    let tempo_total = (hora*60*60 + minuto*60 + segundo)*1000;
+    const d = new Date();
+    const agora = new Date(d.getFullYear(),d.getMonth(),d.getDate(),0,0,0);
+    let milisegundos = Date.parse(agora);
+    tempo_total += milisegundos;
     const contador = setInterval(() => {
-        let tempo_crono = new Date(tempo_total*1000);
-        div_hora.innerHTML = tempo_crono
-            .toLocaleString('pt-BR',{hour: '2-digit', minute: '2-digit', second: '2-digit',});
+        let tempo_crono = new Date(tempo_total);
+        div_hora.innerHTML = tempo_crono.toLocaleString('pt-BR',
+                {
+                    hourCycle: 'h23',
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    second: '2-digit',
+                    timeZone: 'America/Fortaleza',
+                }
+            );
         tempo_total--;    
     }, 1000);
 }
+
+btn_start.addEventListener('click', iniciarContagem);
 
 input_radio.forEach(el => {
     el.addEventListener('click', () => {
@@ -59,7 +73,7 @@ let data_hora;
 const iniciaHora = () => {
     data_hora = setInterval(() => {
         /* captura a data */
-        let tempo = new Date;
+        let tempo = new Date();
         /* fragmenta a data */
         let dow = tempo.getDay();
         let dia = tempo.getDate().toString().padStart(2,'0');

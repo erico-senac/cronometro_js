@@ -4,7 +4,16 @@ const input_radio = document.querySelectorAll("input[name*=cronometro]");
 const inputs_tempo = document.querySelectorAll('input[name=def_time]');
 const btn_start = document.querySelector('#botao_start');
 
-const iniciarContagem = (tipo) => {
+const pararContagem = () => {
+    clearInterval(contador);
+    btn_start.addEventListener('click', iniciarContagem);
+}
+
+const iniciarContagem = () => {
+    btn_start.querySelector('i').classList.toggle('fa-play');
+    btn_start.querySelector('i').classList.toggle('fa-stop');
+    btn_start.addEventListener('click', pararContagem);
+
     let hora = parseInt(document.querySelector('[hora]').value);
     let minuto = parseInt(document.querySelector('[minuto]').value);
     let segundo = parseInt(document.querySelector('[segundo]').value);
@@ -14,21 +23,27 @@ const iniciarContagem = (tipo) => {
     let milisegundos = Date.parse(agora);
     tempo_total += milisegundos;
     const contador = setInterval(() => {
+        if(tempo_total - milisegundos == 0){
+            clearInterval(contador);
+            btn_start.querySelector('i').classList.toggle('fa-play');
+            btn_start.querySelector('i').classList.toggle('fa-stop');
+        }
         let tempo_crono = new Date(tempo_total);
         div_hora.innerHTML = tempo_crono.toLocaleString('pt-BR',
                 {
-                    hourCycle: 'h23',
                     hour: '2-digit',
                     minute: '2-digit',
                     second: '2-digit',
-                    timeZone: 'America/Fortaleza',
                 }
             );
-        tempo_total--;    
+        let tipo = document.querySelector('[name="tipo_cronometro"]:checked').value;
+        if(tipo === "Prog")
+            tempo_total+=1000;
+        else
+            tempo_total-=1000;
     }, 1000);
 }
 
-btn_start.addEventListener('click', iniciarContagem);
 
 input_radio.forEach(el => {
     el.addEventListener('click', () => {
@@ -36,9 +51,12 @@ input_radio.forEach(el => {
             clearInterval(data_hora);
             document.querySelector('.def_time').classList.remove('hide');
             div_hora.innerHTML = "";
+            let tipo = el.value
+            btn_start.addEventListener('click', iniciarContagem);
         } else {
             document.querySelector('.def_time').classList.add('hide');
             iniciaHora();
+            btn_start.setAttribute('enable',false);
         }
     });
 });

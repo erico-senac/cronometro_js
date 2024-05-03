@@ -18,31 +18,34 @@
                 <input type="radio" name="tipo_cronometro" id="" value="Prog">Progressivo
                 <input type="radio" name="tipo_cronometro" id="" value="Reg">Regressivo
             </div>
-            <div class="def_time hide">
+            
+        </div>
+        <div id="acoes_crono" class="hide">
+            <div class="def_time">
                 <label for="def_time">Tempo 
                     <input type="number" name="def_time" hora id="def_time" min="00" max="23"> :
                     <input type="number" name="def_time" minuto id="def_time" min="00" max="59"> :
                     <input type="number" name="def_time" segundo id="def_time" min="00" max="59">
                 </label>
             </div>
-        </div>
-        <div class="acoes_crono">
-            <div class="btn" id="botao_start">
-                <i class="fas fa-play"> </i> Iniciar
+            <div class="acoes_crono">
+                <div class="btn" id="botao_start">
+                    <i class="fas fa-play"> </i> Iniciar
+                </div>
+                <div class="btn" id="botao_reset">
+                    <i class="fas fa-fast-backward"> </i> Resetar
+                </div>
+               <!--  <div class="btn" id="botao_stop">
+                    <i class="fas fa-stop"></i> Parar
+                </div> -->
             </div>
-            <div class="btn" id="botao_reset">
-                <i class="fas fa-fast-backward"> </i> Resetar
-            </div>
-           <!--  <div class="btn" id="botao_stop">
-                <i class="fas fa-stop"></i> Parar
-            </div> -->
         </div>
         <div class="cronometro">
             tempo
         </div>
-        <div class="data">
+        <!-- <div class="data">
             data
-        </div>
+        </div> -->
     </div>
     <script src="./asset/js/cronometro.js"></script>
 </body>
